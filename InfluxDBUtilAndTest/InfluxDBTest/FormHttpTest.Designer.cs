@@ -39,22 +39,38 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabCtl = new System.Windows.Forms.TabControl();
             this.tabPageConnection = new System.Windows.Forms.TabPage();
+            this.btnPing = new System.Windows.Forms.Button();
+            this.btnReset = new System.Windows.Forms.Button();
+            this.tbxUsername = new System.Windows.Forms.TextBox();
+            this.tbxPassword = new System.Windows.Forms.TextBox();
+            this.tbxBaseUrl = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.tabPageDatabasesInfo = new System.Windows.Forms.TabPage();
             this.tabPageSaveData = new System.Windows.Forms.TabPage();
-            this.tabPageQueryData = new System.Windows.Forms.TabPage();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tbxDbSave = new System.Windows.Forms.TextBox();
             this.tbxSqlWrite = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tbxBaseUrl = new System.Windows.Forms.TextBox();
-            this.tbxPassword = new System.Windows.Forms.TextBox();
-            this.tbxUsername = new System.Windows.Forms.TextBox();
-            this.btnReset = new System.Windows.Forms.Button();
+            this.tabPageQueryData = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tbxDbQuery = new System.Windows.Forms.TextBox();
+            this.tabPageReadFile = new System.Windows.Forms.TabPage();
+            this.tbxFilePath = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.tbxReadResult = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.numEnd = new System.Windows.Forms.NumericUpDown();
+            this.numStart = new System.Windows.Forms.NumericUpDown();
+            this.btnRead = new System.Windows.Forms.Button();
             this.tabCtl.SuspendLayout();
             this.tabPageConnection.SuspendLayout();
             this.tabPageDatabasesInfo.SuspendLayout();
             this.tabPageSaveData.SuspendLayout();
             this.tabPageQueryData.SuspendLayout();
+            this.tabPageReadFile.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnd)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStart)).BeginInit();
             this.SuspendLayout();
             // 
             // tbxQueryResult
@@ -77,7 +93,7 @@
             // 
             // btnSave
             // 
-            this.btnSave.Location = new System.Drawing.Point(245, 192);
+            this.btnSave.Location = new System.Drawing.Point(246, 241);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 23);
             this.btnSave.TabIndex = 6;
@@ -123,7 +139,7 @@
             // 
             // tbxSqlQuery
             // 
-            this.tbxSqlQuery.Location = new System.Drawing.Point(68, 31);
+            this.tbxSqlQuery.Location = new System.Drawing.Point(87, 31);
             this.tbxSqlQuery.Name = "tbxSqlQuery";
             this.tbxSqlQuery.Size = new System.Drawing.Size(470, 21);
             this.tbxSqlQuery.TabIndex = 14;
@@ -132,7 +148,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(9, 34);
+            this.label3.Location = new System.Drawing.Point(26, 34);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(53, 12);
             this.label3.TabIndex = 15;
@@ -144,6 +160,7 @@
             this.tabCtl.Controls.Add(this.tabPageDatabasesInfo);
             this.tabCtl.Controls.Add(this.tabPageSaveData);
             this.tabCtl.Controls.Add(this.tabPageQueryData);
+            this.tabCtl.Controls.Add(this.tabPageReadFile);
             this.tabCtl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCtl.Location = new System.Drawing.Point(0, 0);
             this.tabCtl.Name = "tabCtl";
@@ -153,6 +170,7 @@
             // 
             // tabPageConnection
             // 
+            this.tabPageConnection.Controls.Add(this.btnPing);
             this.tabPageConnection.Controls.Add(this.btnReset);
             this.tabPageConnection.Controls.Add(this.tbxUsername);
             this.tabPageConnection.Controls.Add(this.tbxPassword);
@@ -167,6 +185,77 @@
             this.tabPageConnection.TabIndex = 0;
             this.tabPageConnection.Text = "数据库连接信息";
             this.tabPageConnection.UseVisualStyleBackColor = true;
+            // 
+            // btnPing
+            // 
+            this.btnPing.Location = new System.Drawing.Point(320, 233);
+            this.btnPing.Name = "btnPing";
+            this.btnPing.Size = new System.Drawing.Size(75, 23);
+            this.btnPing.TabIndex = 13;
+            this.btnPing.Text = "Ping服务";
+            this.btnPing.UseVisualStyleBackColor = true;
+            this.btnPing.Click += new System.EventHandler(this.btnPing_ClickAsync);
+            // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(161, 233);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 6;
+            this.btnReset.Text = "重置";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
+            // tbxUsername
+            // 
+            this.tbxUsername.Location = new System.Drawing.Point(143, 94);
+            this.tbxUsername.Name = "tbxUsername";
+            this.tbxUsername.Size = new System.Drawing.Size(278, 21);
+            this.tbxUsername.TabIndex = 5;
+            this.tbxUsername.Text = "admin";
+            // 
+            // tbxPassword
+            // 
+            this.tbxPassword.Location = new System.Drawing.Point(143, 147);
+            this.tbxPassword.Name = "tbxPassword";
+            this.tbxPassword.Size = new System.Drawing.Size(278, 21);
+            this.tbxPassword.TabIndex = 4;
+            this.tbxPassword.Text = "admin";
+            // 
+            // tbxBaseUrl
+            // 
+            this.tbxBaseUrl.Location = new System.Drawing.Point(143, 47);
+            this.tbxBaseUrl.Name = "tbxBaseUrl";
+            this.tbxBaseUrl.Size = new System.Drawing.Size(278, 21);
+            this.tbxBaseUrl.TabIndex = 3;
+            this.tbxBaseUrl.Text = "http://172.16.9.229:8086";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(57, 156);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(35, 12);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "密码:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(57, 103);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 12);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "用户名:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(21, 47);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 12);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "基础连接地址:";
             // 
             // tabPageDatabasesInfo
             // 
@@ -183,6 +272,8 @@
             // 
             // tabPageSaveData
             // 
+            this.tabPageSaveData.Controls.Add(this.label8);
+            this.tabPageSaveData.Controls.Add(this.tbxDbSave);
             this.tabPageSaveData.Controls.Add(this.tbxSqlWrite);
             this.tabPageSaveData.Controls.Add(this.btnSave);
             this.tabPageSaveData.Location = new System.Drawing.Point(4, 22);
@@ -193,8 +284,36 @@
             this.tabPageSaveData.Text = "保存数据";
             this.tabPageSaveData.UseVisualStyleBackColor = true;
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(41, 44);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 12);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "数据库名称:";
+            // 
+            // tbxDbSave
+            // 
+            this.tbxDbSave.Location = new System.Drawing.Point(120, 40);
+            this.tbxDbSave.Name = "tbxDbSave";
+            this.tbxDbSave.Size = new System.Drawing.Size(167, 21);
+            this.tbxDbSave.TabIndex = 11;
+            this.tbxDbSave.Text = "rtvsweb";
+            // 
+            // tbxSqlWrite
+            // 
+            this.tbxSqlWrite.Location = new System.Drawing.Point(24, 101);
+            this.tbxSqlWrite.Multiline = true;
+            this.tbxSqlWrite.Name = "tbxSqlWrite";
+            this.tbxSqlWrite.Size = new System.Drawing.Size(539, 108);
+            this.tbxSqlWrite.TabIndex = 7;
+            this.tbxSqlWrite.Text = "test,type=logs Field0=10,Field1=10,Field2=20";
+            // 
             // tabPageQueryData
             // 
+            this.tabPageQueryData.Controls.Add(this.label9);
+            this.tabPageQueryData.Controls.Add(this.tbxDbQuery);
             this.tabPageQueryData.Controls.Add(this.tbxSqlQuery);
             this.tabPageQueryData.Controls.Add(this.label2);
             this.tabPageQueryData.Controls.Add(this.btnQuery);
@@ -207,75 +326,117 @@
             this.tabPageQueryData.Text = "查询数据";
             this.tabPageQueryData.UseVisualStyleBackColor = true;
             // 
-            // tbxSqlWrite
+            // label9
             // 
-            this.tbxSqlWrite.Location = new System.Drawing.Point(28, 35);
-            this.tbxSqlWrite.Multiline = true;
-            this.tbxSqlWrite.Name = "tbxSqlWrite";
-            this.tbxSqlWrite.Size = new System.Drawing.Size(539, 108);
-            this.tbxSqlWrite.TabIndex = 7;
-            this.tbxSqlWrite.Text = "test,type=logs Field0=10,Field1=10,Field2=20";
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 10);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(71, 12);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "数据库名称:";
             // 
-            // label4
+            // tbxDbQuery
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(21, 47);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(83, 12);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "基础连接地址:";
+            this.tbxDbQuery.Location = new System.Drawing.Point(87, 6);
+            this.tbxDbQuery.Name = "tbxDbQuery";
+            this.tbxDbQuery.Size = new System.Drawing.Size(204, 21);
+            this.tbxDbQuery.TabIndex = 16;
+            this.tbxDbQuery.Text = "rtvsweb";
             // 
-            // label5
+            // tabPageReadFile
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(57, 103);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(47, 12);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "用户名:";
+            this.tabPageReadFile.Controls.Add(this.tbxFilePath);
+            this.tabPageReadFile.Controls.Add(this.label11);
+            this.tabPageReadFile.Controls.Add(this.tbxReadResult);
+            this.tabPageReadFile.Controls.Add(this.label10);
+            this.tabPageReadFile.Controls.Add(this.numEnd);
+            this.tabPageReadFile.Controls.Add(this.numStart);
+            this.tabPageReadFile.Controls.Add(this.btnRead);
+            this.tabPageReadFile.Location = new System.Drawing.Point(4, 22);
+            this.tabPageReadFile.Name = "tabPageReadFile";
+            this.tabPageReadFile.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageReadFile.Size = new System.Drawing.Size(626, 366);
+            this.tabPageReadFile.TabIndex = 4;
+            this.tabPageReadFile.Text = "读文件行";
+            this.tabPageReadFile.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // tbxFilePath
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(57, 156);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(35, 12);
-            this.label6.TabIndex = 2;
-            this.label6.Text = "密码:";
+            this.tbxFilePath.Location = new System.Drawing.Point(176, 16);
+            this.tbxFilePath.Name = "tbxFilePath";
+            this.tbxFilePath.Size = new System.Drawing.Size(278, 21);
+            this.tbxFilePath.TabIndex = 24;
+            this.tbxFilePath.Click += new System.EventHandler(this.tbxFilePath_Click);
             // 
-            // tbxBaseUrl
+            // label11
             // 
-            this.tbxBaseUrl.Location = new System.Drawing.Point(143, 47);
-            this.tbxBaseUrl.Name = "tbxBaseUrl";
-            this.tbxBaseUrl.Size = new System.Drawing.Size(278, 21);
-            this.tbxBaseUrl.TabIndex = 3;
-            this.tbxBaseUrl.Text = "http://172.16.9.229:8086";
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(28, 16);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(59, 12);
+            this.label11.TabIndex = 23;
+            this.label11.Text = "文件路径:";
             // 
-            // tbxPassword
+            // tbxReadResult
             // 
-            this.tbxPassword.Location = new System.Drawing.Point(143, 147);
-            this.tbxPassword.Name = "tbxPassword";
-            this.tbxPassword.Size = new System.Drawing.Size(278, 21);
-            this.tbxPassword.TabIndex = 4;
-            this.tbxPassword.Text = "admin";
+            this.tbxReadResult.Location = new System.Drawing.Point(28, 107);
+            this.tbxReadResult.Multiline = true;
+            this.tbxReadResult.Name = "tbxReadResult";
+            this.tbxReadResult.Size = new System.Drawing.Size(577, 241);
+            this.tbxReadResult.TabIndex = 22;
             // 
-            // tbxUsername
+            // label10
             // 
-            this.tbxUsername.Location = new System.Drawing.Point(143, 94);
-            this.tbxUsername.Name = "tbxUsername";
-            this.tbxUsername.Size = new System.Drawing.Size(278, 21);
-            this.tbxUsername.TabIndex = 5;
-            this.tbxUsername.Text = "admin";
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(26, 69);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(119, 12);
+            this.label10.TabIndex = 21;
+            this.label10.Text = "读文件开启和结束行:";
             // 
-            // btnReset
+            // numEnd
             // 
-            this.btnReset.Location = new System.Drawing.Point(219, 224);
-            this.btnReset.Name = "btnReset";
-            this.btnReset.Size = new System.Drawing.Size(75, 23);
-            this.btnReset.TabIndex = 6;
-            this.btnReset.Text = "重置";
-            this.btnReset.UseVisualStyleBackColor = true;
-            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            this.numEnd.Location = new System.Drawing.Point(334, 64);
+            this.numEnd.Minimum = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            this.numEnd.Name = "numEnd";
+            this.numEnd.Size = new System.Drawing.Size(120, 21);
+            this.numEnd.TabIndex = 20;
+            this.numEnd.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // numStart
+            // 
+            this.numStart.Location = new System.Drawing.Point(176, 64);
+            this.numStart.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numStart.Name = "numStart";
+            this.numStart.Size = new System.Drawing.Size(120, 21);
+            this.numStart.TabIndex = 19;
+            this.numStart.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // btnRead
+            // 
+            this.btnRead.Location = new System.Drawing.Point(489, 64);
+            this.btnRead.Name = "btnRead";
+            this.btnRead.Size = new System.Drawing.Size(75, 23);
+            this.btnRead.TabIndex = 18;
+            this.btnRead.Text = "读取指定行数据";
+            this.btnRead.UseVisualStyleBackColor = true;
+            this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
             // FormHttpTest
             // 
@@ -295,6 +456,10 @@
             this.tabPageSaveData.PerformLayout();
             this.tabPageQueryData.ResumeLayout(false);
             this.tabPageQueryData.PerformLayout();
+            this.tabPageReadFile.ResumeLayout(false);
+            this.tabPageReadFile.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numEnd)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numStart)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -322,5 +487,18 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox tbxDbSave;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.TextBox tbxDbQuery;
+        private System.Windows.Forms.Button btnPing;
+        private System.Windows.Forms.TabPage tabPageReadFile;
+        private System.Windows.Forms.TextBox tbxReadResult;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown numEnd;
+        private System.Windows.Forms.NumericUpDown numStart;
+        private System.Windows.Forms.Button btnRead;
+        private System.Windows.Forms.TextBox tbxFilePath;
+        private System.Windows.Forms.Label label11;
     }
 }
