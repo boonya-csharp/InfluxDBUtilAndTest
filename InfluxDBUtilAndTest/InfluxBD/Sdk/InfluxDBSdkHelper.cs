@@ -73,6 +73,13 @@ namespace InfluxBD.Sdk
             statusCallBack?.Invoke(writeResponse.Success);
         }
 
+        public async System.Threading.Tasks.Task<string> WriteAsync(string database, InfluxDB.Net.Models.Point point, StatusCallBack statusCallBack)
+        {
+            InfluxDbApiResponse writeResponse = await _client.WriteAsync(database, point);
+            statusCallBack?.Invoke(writeResponse.Success);
+            return writeResponse.Success ? "入库成功" : "入库失败";
+        }
+
         public async void Query(string database,string sql, ResultCallBack resultCallBack)
         {
             List<Serie> series = await _client.QueryAsync(database, sql);

@@ -63,6 +63,11 @@
             this.numEnd = new System.Windows.Forms.NumericUpDown();
             this.numStart = new System.Windows.Forms.NumericUpDown();
             this.btnRead = new System.Windows.Forms.Button();
+            this.tabPageHttpPost = new System.Windows.Forms.TabPage();
+            this.btnHttpPost = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.tbxParam_url = new System.Windows.Forms.TextBox();
+            this.btnSdk = new System.Windows.Forms.Button();
             this.tabCtl.SuspendLayout();
             this.tabPageConnection.SuspendLayout();
             this.tabPageDatabasesInfo.SuspendLayout();
@@ -71,6 +76,7 @@
             this.tabPageReadFile.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEnd)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStart)).BeginInit();
+            this.tabPageHttpPost.SuspendLayout();
             this.SuspendLayout();
             // 
             // tbxQueryResult
@@ -161,6 +167,7 @@
             this.tabCtl.Controls.Add(this.tabPageSaveData);
             this.tabCtl.Controls.Add(this.tabPageQueryData);
             this.tabCtl.Controls.Add(this.tabPageReadFile);
+            this.tabCtl.Controls.Add(this.tabPageHttpPost);
             this.tabCtl.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabCtl.Location = new System.Drawing.Point(0, 0);
             this.tabCtl.Name = "tabCtl";
@@ -170,6 +177,7 @@
             // 
             // tabPageConnection
             // 
+            this.tabPageConnection.Controls.Add(this.btnSdk);
             this.tabPageConnection.Controls.Add(this.btnPing);
             this.tabPageConnection.Controls.Add(this.btnReset);
             this.tabPageConnection.Controls.Add(this.tbxUsername);
@@ -188,7 +196,7 @@
             // 
             // btnPing
             // 
-            this.btnPing.Location = new System.Drawing.Point(320, 233);
+            this.btnPing.Location = new System.Drawing.Point(272, 233);
             this.btnPing.Name = "btnPing";
             this.btnPing.Size = new System.Drawing.Size(75, 23);
             this.btnPing.TabIndex = 13;
@@ -438,6 +446,56 @@
             this.btnRead.UseVisualStyleBackColor = true;
             this.btnRead.Click += new System.EventHandler(this.btnRead_Click);
             // 
+            // tabPageHttpPost
+            // 
+            this.tabPageHttpPost.Controls.Add(this.tbxParam_url);
+            this.tabPageHttpPost.Controls.Add(this.label7);
+            this.tabPageHttpPost.Controls.Add(this.btnHttpPost);
+            this.tabPageHttpPost.Location = new System.Drawing.Point(4, 22);
+            this.tabPageHttpPost.Name = "tabPageHttpPost";
+            this.tabPageHttpPost.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageHttpPost.Size = new System.Drawing.Size(626, 366);
+            this.tabPageHttpPost.TabIndex = 5;
+            this.tabPageHttpPost.Text = "测试HttpPost";
+            this.tabPageHttpPost.UseVisualStyleBackColor = true;
+            // 
+            // btnHttpPost
+            // 
+            this.btnHttpPost.Location = new System.Drawing.Point(205, 121);
+            this.btnHttpPost.Name = "btnHttpPost";
+            this.btnHttpPost.Size = new System.Drawing.Size(133, 23);
+            this.btnHttpPost.TabIndex = 0;
+            this.btnHttpPost.Text = "发起Post请求";
+            this.btnHttpPost.UseVisualStyleBackColor = true;
+            this.btnHttpPost.Click += new System.EventHandler(this.btnHttpPost_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(35, 50);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(59, 12);
+            this.label7.TabIndex = 1;
+            this.label7.Text = "Http URL:";
+            // 
+            // tbxParam_url
+            // 
+            this.tbxParam_url.Location = new System.Drawing.Point(100, 47);
+            this.tbxParam_url.Name = "tbxParam_url";
+            this.tbxParam_url.Size = new System.Drawing.Size(369, 21);
+            this.tbxParam_url.TabIndex = 2;
+            this.tbxParam_url.Text = "http://localhost:5000/WebService/Test";
+            // 
+            // btnSdk
+            // 
+            this.btnSdk.Location = new System.Drawing.Point(398, 233);
+            this.btnSdk.Name = "btnSdk";
+            this.btnSdk.Size = new System.Drawing.Size(75, 23);
+            this.btnSdk.TabIndex = 14;
+            this.btnSdk.Text = "SDK测试";
+            this.btnSdk.UseVisualStyleBackColor = true;
+            this.btnSdk.Click += new System.EventHandler(this.btnSdk_Click);
+            // 
             // FormHttpTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -460,6 +518,8 @@
             this.tabPageReadFile.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numEnd)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numStart)).EndInit();
+            this.tabPageHttpPost.ResumeLayout(false);
+            this.tabPageHttpPost.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -500,5 +560,10 @@
         private System.Windows.Forms.Button btnRead;
         private System.Windows.Forms.TextBox tbxFilePath;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.TabPage tabPageHttpPost;
+        private System.Windows.Forms.TextBox tbxParam_url;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnHttpPost;
+        private System.Windows.Forms.Button btnSdk;
     }
 }

@@ -61,8 +61,9 @@ namespace InfluxBD
         /// <param name="username"></param>
         /// <param name="password"></param>
         /// <param name="sql"></param>
+        /// <param name="rp"></param>
         /// <returns></returns>
-        public static async System.Threading.Tasks.Task<string> PostAsync(string url,string database, string username, string password, string sql)
+        public static async System.Threading.Tasks.Task<string> PostAsync(string url,string database, string username, string password,string sql,string rp)
         {
             using (var client = new HttpClient())
             {
@@ -72,7 +73,7 @@ namespace InfluxBD
                 values.Add(new KeyValuePair<string, string>("u", username));
                 values.Add(new KeyValuePair<string, string>("p", password));
                 values.Add(new KeyValuePair<string, string>("q", sql));
-
+                values.Add(new KeyValuePair<string, string>("rp", rp));
                 var content = new FormUrlEncodedContent(values);
 
                 var response = await client.PostAsync(url, content);
@@ -85,6 +86,7 @@ namespace InfluxBD
 
         private static void SetRequestHeaders(HttpClient client, string username, string password)
         {
+            client.Timeout = TimeSpan.FromSeconds(30);
             client.DefaultRequestHeaders.Add("User-Agent", @"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/69.0.3497.100 Safari/537.36");
             client.DefaultRequestHeaders.Add("Accept", @"text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8");
             //client.DefaultRequestHeaders.Add("Accept-Encoding", "gzip");
