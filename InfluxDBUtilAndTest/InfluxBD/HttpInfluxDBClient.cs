@@ -77,8 +77,8 @@ namespace InfluxBD
         public async System.Threading.Tasks.Task<string> WriteAsync(string database, string sql)
         {
             string rp = "20_days";
-            string url = _baseAddress + string.Format("/write?db={0}&q={1}", database, sql);
-            string result = await HttpHelper.PostAsync(url, database,  _username, _password,sql,rp);
+            string url = _baseAddress + string.Format("/write?u={0}&p={1}&db={2}&rp={3}&precision=ms", _username, _password, database,rp);
+            string result = await HttpHelper.PostAsync(url,  _username, _password,sql);
             return result;
         }
 

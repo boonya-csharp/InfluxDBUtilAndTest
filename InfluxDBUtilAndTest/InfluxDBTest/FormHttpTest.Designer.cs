@@ -39,6 +39,7 @@
             this.label3 = new System.Windows.Forms.Label();
             this.tabCtl = new System.Windows.Forms.TabControl();
             this.tabPageConnection = new System.Windows.Forms.TabPage();
+            this.btnSdk = new System.Windows.Forms.Button();
             this.btnPing = new System.Windows.Forms.Button();
             this.btnReset = new System.Windows.Forms.Button();
             this.tbxUsername = new System.Windows.Forms.TextBox();
@@ -64,10 +65,13 @@
             this.numStart = new System.Windows.Forms.NumericUpDown();
             this.btnRead = new System.Windows.Forms.Button();
             this.tabPageHttpPost = new System.Windows.Forms.TabPage();
-            this.btnHttpPost = new System.Windows.Forms.Button();
-            this.label7 = new System.Windows.Forms.Label();
             this.tbxParam_url = new System.Windows.Forms.TextBox();
-            this.btnSdk = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.btnHttpPost = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
+            this.btnCreateDB = new System.Windows.Forms.Button();
+            this.btnDeleteDB = new System.Windows.Forms.Button();
+            this.tbxDatabase = new System.Windows.Forms.TextBox();
             this.tabCtl.SuspendLayout();
             this.tabPageConnection.SuspendLayout();
             this.tabPageDatabasesInfo.SuspendLayout();
@@ -131,7 +135,7 @@
             this.tbxDbsInfo.Location = new System.Drawing.Point(22, 76);
             this.tbxDbsInfo.Multiline = true;
             this.tbxDbsInfo.Name = "tbxDbsInfo";
-            this.tbxDbsInfo.Size = new System.Drawing.Size(596, 128);
+            this.tbxDbsInfo.Size = new System.Drawing.Size(596, 87);
             this.tbxDbsInfo.TabIndex = 12;
             // 
             // label2
@@ -194,6 +198,16 @@
             this.tabPageConnection.Text = "数据库连接信息";
             this.tabPageConnection.UseVisualStyleBackColor = true;
             // 
+            // btnSdk
+            // 
+            this.btnSdk.Location = new System.Drawing.Point(398, 233);
+            this.btnSdk.Name = "btnSdk";
+            this.btnSdk.Size = new System.Drawing.Size(75, 23);
+            this.btnSdk.TabIndex = 14;
+            this.btnSdk.Text = "SDK测试";
+            this.btnSdk.UseVisualStyleBackColor = true;
+            this.btnSdk.Click += new System.EventHandler(this.btnSdk_Click);
+            // 
             // btnPing
             // 
             this.btnPing.Location = new System.Drawing.Point(272, 233);
@@ -236,7 +250,7 @@
             this.tbxBaseUrl.Name = "tbxBaseUrl";
             this.tbxBaseUrl.Size = new System.Drawing.Size(278, 21);
             this.tbxBaseUrl.TabIndex = 3;
-            this.tbxBaseUrl.Text = "http://172.16.9.229:8086";
+            this.tbxBaseUrl.Text = "http://localhost:8086";
             // 
             // label6
             // 
@@ -267,6 +281,10 @@
             // 
             // tabPageDatabasesInfo
             // 
+            this.tabPageDatabasesInfo.Controls.Add(this.tbxDatabase);
+            this.tabPageDatabasesInfo.Controls.Add(this.btnDeleteDB);
+            this.tabPageDatabasesInfo.Controls.Add(this.btnCreateDB);
+            this.tabPageDatabasesInfo.Controls.Add(this.label12);
             this.tabPageDatabasesInfo.Controls.Add(this.label1);
             this.tabPageDatabasesInfo.Controls.Add(this.btnGetBds);
             this.tabPageDatabasesInfo.Controls.Add(this.tbxDbsInfo);
@@ -459,15 +477,13 @@
             this.tabPageHttpPost.Text = "测试HttpPost";
             this.tabPageHttpPost.UseVisualStyleBackColor = true;
             // 
-            // btnHttpPost
+            // tbxParam_url
             // 
-            this.btnHttpPost.Location = new System.Drawing.Point(205, 121);
-            this.btnHttpPost.Name = "btnHttpPost";
-            this.btnHttpPost.Size = new System.Drawing.Size(133, 23);
-            this.btnHttpPost.TabIndex = 0;
-            this.btnHttpPost.Text = "发起Post请求";
-            this.btnHttpPost.UseVisualStyleBackColor = true;
-            this.btnHttpPost.Click += new System.EventHandler(this.btnHttpPost_Click);
+            this.tbxParam_url.Location = new System.Drawing.Point(100, 47);
+            this.tbxParam_url.Name = "tbxParam_url";
+            this.tbxParam_url.Size = new System.Drawing.Size(369, 21);
+            this.tbxParam_url.TabIndex = 2;
+            this.tbxParam_url.Text = "http://localhost:5000/WebService/Test";
             // 
             // label7
             // 
@@ -478,23 +494,52 @@
             this.label7.TabIndex = 1;
             this.label7.Text = "Http URL:";
             // 
-            // tbxParam_url
+            // btnHttpPost
             // 
-            this.tbxParam_url.Location = new System.Drawing.Point(100, 47);
-            this.tbxParam_url.Name = "tbxParam_url";
-            this.tbxParam_url.Size = new System.Drawing.Size(369, 21);
-            this.tbxParam_url.TabIndex = 2;
-            this.tbxParam_url.Text = "http://localhost:5000/WebService/Test";
+            this.btnHttpPost.Location = new System.Drawing.Point(205, 121);
+            this.btnHttpPost.Name = "btnHttpPost";
+            this.btnHttpPost.Size = new System.Drawing.Size(133, 23);
+            this.btnHttpPost.TabIndex = 0;
+            this.btnHttpPost.Text = "发起Post请求";
+            this.btnHttpPost.UseVisualStyleBackColor = true;
+            this.btnHttpPost.Click += new System.EventHandler(this.btnHttpPost_Click);
             // 
-            // btnSdk
+            // label12
             // 
-            this.btnSdk.Location = new System.Drawing.Point(398, 233);
-            this.btnSdk.Name = "btnSdk";
-            this.btnSdk.Size = new System.Drawing.Size(75, 23);
-            this.btnSdk.TabIndex = 14;
-            this.btnSdk.Text = "SDK测试";
-            this.btnSdk.UseVisualStyleBackColor = true;
-            this.btnSdk.Click += new System.EventHandler(this.btnSdk_Click);
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(22, 216);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(71, 12);
+            this.label12.TabIndex = 13;
+            this.label12.Text = "数据库名称:";
+            // 
+            // btnCreateDB
+            // 
+            this.btnCreateDB.Location = new System.Drawing.Point(274, 210);
+            this.btnCreateDB.Name = "btnCreateDB";
+            this.btnCreateDB.Size = new System.Drawing.Size(75, 23);
+            this.btnCreateDB.TabIndex = 14;
+            this.btnCreateDB.Text = "创建数据库";
+            this.btnCreateDB.UseVisualStyleBackColor = true;
+            this.btnCreateDB.Click += new System.EventHandler(this.btnCreateDB_Click);
+            // 
+            // btnDeleteDB
+            // 
+            this.btnDeleteDB.Location = new System.Drawing.Point(384, 210);
+            this.btnDeleteDB.Name = "btnDeleteDB";
+            this.btnDeleteDB.Size = new System.Drawing.Size(75, 23);
+            this.btnDeleteDB.TabIndex = 15;
+            this.btnDeleteDB.Text = "删除数据库";
+            this.btnDeleteDB.UseVisualStyleBackColor = true;
+            this.btnDeleteDB.Click += new System.EventHandler(this.btnDeleteDB_Click);
+            // 
+            // tbxDatabase
+            // 
+            this.tbxDatabase.Location = new System.Drawing.Point(100, 212);
+            this.tbxDatabase.Name = "tbxDatabase";
+            this.tbxDatabase.Size = new System.Drawing.Size(128, 21);
+            this.tbxDatabase.TabIndex = 16;
+            this.tbxDatabase.Text = "test";
             // 
             // FormHttpTest
             // 
@@ -565,5 +610,9 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button btnHttpPost;
         private System.Windows.Forms.Button btnSdk;
+        private System.Windows.Forms.TextBox tbxDatabase;
+        private System.Windows.Forms.Button btnDeleteDB;
+        private System.Windows.Forms.Button btnCreateDB;
+        private System.Windows.Forms.Label label12;
     }
 }

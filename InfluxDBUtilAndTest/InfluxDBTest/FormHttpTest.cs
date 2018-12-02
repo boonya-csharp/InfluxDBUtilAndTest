@@ -65,7 +65,12 @@ namespace InfluxDBTest
 
         private void button3_Click(object sender, EventArgs e)
         {
-            tbxDbsInfo.Text = httpInfluxDBClient.GetDatabasesAsync().Result;
+            var thread = new Thread(async () => {
+                tbxDbsInfo.Text =await httpInfluxDBClient.GetDatabasesAsync();
+            });
+            thread.IsBackground = true;
+            thread.Start();
+           
         }
 
         private void btnReset_Click(object sender, EventArgs e)
@@ -137,6 +142,24 @@ namespace InfluxDBTest
         {
             FormSdkTest sdkTest = new FormSdkTest();
             sdkTest.Show();
+        }
+
+        private void btnCreateDB_Click(object sender, EventArgs e)
+        {
+            var thread = new Thread(async () => {
+                tbxDbsInfo.Text ="创建数据库成功"+ await httpInfluxDBClient.CreateDatabaseAsync(this.tbxDatabase.Text);
+            });
+            thread.IsBackground = true;
+            thread.Start();
+        }
+
+        private void btnDeleteDB_Click(object sender, EventArgs e)
+        {
+            var thread = new Thread(async () => {
+                tbxDbsInfo.Text = "删除数据库成功" + await httpInfluxDBClient.DeleteDatabaseAsync(this.tbxDatabase.Text);
+            });
+            thread.IsBackground = true;
+            thread.Start();
         }
     }
 }

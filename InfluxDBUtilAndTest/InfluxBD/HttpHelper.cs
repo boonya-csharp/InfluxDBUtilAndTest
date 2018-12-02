@@ -38,49 +38,33 @@ namespace InfluxBD
             using (var client = new HttpClient())
             {
                 HttpHelper.SetRequestHeaders(client, username, password);
-                var values = new List<System.Collections.Generic.KeyValuePair<string, string>>();
-                values.Add(new KeyValuePair<string, string>("u", username));
-                values.Add(new KeyValuePair<string, string>("p", password));
-                values.Add(new KeyValuePair<string, string>("q", sql));
 
-                var content = new FormUrlEncodedContent(values);
+                if (url.Contains("/write"))
+                {
+                    HttpContent httpContent = new StringContent(sql);
 
-                var response = await client.PostAsync(url, content);
+                    var response = await client.PostAsync(url, httpContent);
 
-                var responseString = await response.Content.ReadAsStringAsync();
+                    var responseString = await response.Content.ReadAsStringAsync();
 
-                return responseString;
-            }
-        }
+                    return responseString;
+                }
+                else
+                {
+                    var values = new List<System.Collections.Generic.KeyValuePair<string, string>>();
+                    values.Add(new KeyValuePair<string, string>("u", username));
+                    values.Add(new KeyValuePair<string, string>("p", password));
+                    values.Add(new KeyValuePair<string, string>("q", sql));
 
-        /// <summary>
-        /// POST
-        /// </summary>
-        /// <param name="url"></param>
-        /// <param name="database"></param>
-        /// <param name="username"></param>
-        /// <param name="password"></param>
-        /// <param name="sql"></param>
-        /// <param name="rp"></param>
-        /// <returns></returns>
-        public static async System.Threading.Tasks.Task<string> PostAsync(string url,string database, string username, string password,string sql,string rp)
-        {
-            using (var client = new HttpClient())
-            {
-                HttpHelper.SetRequestHeaders(client,username,password);
-                var values = new List<System.Collections.Generic.KeyValuePair<string, string>>();
-                values.Add(new KeyValuePair<string, string>("db", database));
-                values.Add(new KeyValuePair<string, string>("u", username));
-                values.Add(new KeyValuePair<string, string>("p", password));
-                values.Add(new KeyValuePair<string, string>("q", sql));
-                values.Add(new KeyValuePair<string, string>("rp", rp));
-                var content = new FormUrlEncodedContent(values);
+                    var content = new FormUrlEncodedContent(values);
 
-                var response = await client.PostAsync(url, content);
+                    var response = await client.PostAsync(url, content);
 
-                var responseString = await response.Content.ReadAsStringAsync();
+                    var responseString = await response.Content.ReadAsStringAsync();
 
-                return responseString;
+                    return responseString;
+                }
+               
             }
         }
 
