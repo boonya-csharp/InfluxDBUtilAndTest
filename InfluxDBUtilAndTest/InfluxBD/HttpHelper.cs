@@ -52,8 +52,6 @@ namespace InfluxBD
                 else
                 {
                     var values = new List<System.Collections.Generic.KeyValuePair<string, string>>();
-                    values.Add(new KeyValuePair<string, string>("u", username));
-                    values.Add(new KeyValuePair<string, string>("p", password));
                     values.Add(new KeyValuePair<string, string>("q", sql));
 
                     var content = new FormUrlEncodedContent(values);
