@@ -131,8 +131,8 @@ namespace InfluxDBTest
         private void btnHttpPost_Click(object sender, EventArgs e)
         {
             var thread = new Thread(async ()=> {
-                //var result=await HttpHelper.PostAsync(this.tbxParam_url.Text,"rtvsweb","admin","admin","this is a sql");
-                //MessageBox.Show(result, "POST结果");
+                var result=await HttpHelper.PostAsync(this.tbxParam_url.Text,this.tbxUsername.Text,tbxPassword.Text,"this is a sql");
+                MessageBox.Show(result, "POST结果");
             });
             thread.IsBackground = true;
             thread.Start();

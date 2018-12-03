@@ -10,9 +10,9 @@ namespace WebAPI.Controllers
 {
     public class WebServiceController : Controller
     {
-        public string Test(string db,string u,string p,string q)
+        public string Test(string q)
         {
-            return "db="+db + ",u=" + u+ ",p="  +p+",sql="+q;
+            return "sql="+q;
         }
     }
 }
