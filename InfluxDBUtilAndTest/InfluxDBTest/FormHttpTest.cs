@@ -111,7 +111,7 @@ namespace InfluxDBTest
             try
             {
                 reader.Open();
-                List<string> list = reader.ReadLine((int)this.numStart.Value, (int)this.numEnd.Value);
+                List<string> list = reader.FromStartReadLine((int)this.numStart.Value, (int)this.numEnd.Value);
                 this.tbxReadResult.Text = "";
                 foreach (var s in list)
                 {

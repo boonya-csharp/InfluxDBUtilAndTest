@@ -34,16 +34,43 @@ namespace InfluxBD.Utils
             }
         }
 
-        public List<string> ReadLine(int start,int end)
+        public List<string> FromStartReadLine(int start, int end)
         {
             List<string> list = new List<string>();
+            List<int> listId = new List<int>();
             try
             {
-                if (end>this.dataBuffer.dataFile.Lines)
+                int total = this.dataBuffer.dataFile.Lines;
+                if (end > total)
                 {
                     throw new Exception("索引超过日志文件行");
                 }
                 for (int i = start, j = end; i <= j; i++)
+                {
+                    listId.Add(i);
+                    list.Add(this.dataBuffer.ReadLine(i));
+                }
+                return list;
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("文件多行读取异常:{0}", ex);
+                return list;
+            }
+        }
+
+        public List<string> FromEndReadLine(int start, int end)
+        {
+            List<string> list = new List<string>();
+            try
+            {
+                int total = this.dataBuffer.dataFile.Lines;
+                if (end > total)
+                {
+                    throw new Exception("索引超过日志文件行");
+                }
+                int i = start == 1 ? total : total - start + 1, j = end == total ? 1 : total - end + 1;
+                for (; i >= j; i--)
                 {
                     list.Add(this.dataBuffer.ReadLine(i));
                 }
